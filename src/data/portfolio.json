@@ -7,10 +7,10 @@
     "email": "thirugaja2001@gmail.com",
     "github": "https://github.com/Thiru-01",
     "linkedin": "https://www.linkedin.com/in/thirumurugan-candane-1067701b8/",
-    "resume": "/Thirumurugan Candane - Resume.pdf",
+    "resume": "/resume/Thirumurugan Candane - Resume.pdf",
     "location": "Puducherry, India",
     "available": true,
-    "avatar": "/avatar.png"
+    "avatar": "/images/avatar.png"
   },
   "about": {
     "bio": "Backend and systems engineer with 3+ years of experience building high-performance, scalable systems at Zoho. Specialized in low-level engineering, concurrency, and designing architectures for efficient large-scale data processing.",
@@ -135,8 +135,8 @@
       "period": "Oct 2023 – Present",
       "duration": "2+ yrs",
       "location": "Chennai, India",
-      "logo": "/zoho.svg",
-      "cover": "/me-zoho-cover.jpg",
+      "logo": "/images/zoho.svg",
+      "cover": "/images/me-zoho-cover.jpg",
       "description": "Working on high-performance backend systems and system-level engineering. Focused on building scalable, low-latency architectures involving file systems, large-scale data transfer, and efficient I/O workflows.",
       "achievements": [
         "Engineered a custom read-only NTFS driver in Rust for disk imaging, removing constraints on source-target disk sizes",
@@ -163,8 +163,8 @@
       "period": "Jan 2022 – Jul 2022",
       "duration": "6 mos",
       "location": "India",
-      "logo": "/eminds.svg",
-      "cover": "/eminds-cover.jpg",
+      "logo": "/images/eminds.svg",
+      "cover": "/images/eminds-cover.jpg",
       "description": "Developed cross-platform mobile applications using Flutter with backend integrations. Focused on building scalable mobile features and improving user experience.",
       "achievements": [
         "Built cross-platform mobile applications using Flutter integrated with REST APIs",
@@ -185,7 +185,7 @@
       "title": "NTFS Filesystem Driver",
       "subtitle": "Low-Level Systems Project (Rust)",
       "description": "Built a custom read-only NTFS filesystem driver in Rust for disk imaging. Handles file record parsing, data runs, and enables efficient disk operations without requiring identical source and target disk sizes.",
-      "image": "/ntfs.jpg",
+      "image": "/images/ntfs.jpg",
       "tags": [
         "Rust",
         "NTFS",
@@ -200,7 +200,7 @@
       "title": "High-Throughput Upload Server",
       "subtitle": "Backend & Systems Engineering",
       "description": "Designed a high-performance upload server optimized for large file transfers. Focused on low latency, concurrency control, and efficient resource utilization for handling large-scale data workloads.",
-      "image": "/upload-server.jpg",
+      "image": "/images/upload-server.jpg",
       "tags": [
         "Java",
         "NIO",
@@ -216,7 +216,7 @@
       "title": "Multicast Data Transmission",
       "subtitle": "Distributed Systems Module",
       "description": "Implemented a multicast-based data transmission system to efficiently broadcast data to multiple clients, improving scalability and reducing redundant network usage.",
-      "image": "/multicast.jpg",
+      "image": "/images/multicast.jpg",
       "tags": [
         "Distributed Systems",
         "Networking",
@@ -230,7 +230,7 @@
       "title": "AmSt Chat Application",
       "subtitle": "Real-Time Messaging App",
       "description": "Developed a real-time chat application supporting text, image, and video messaging using Firebase. Integrated authentication and scalable messaging features.",
-      "image": "/amst.png",
+      "image": "/images/amst.png",
       "tags": [
         "Flutter",
         "Firebase",
@@ -247,7 +247,7 @@
       "title": "LeafX",
       "subtitle": "AI Plant Disease Detection",
       "description": "Built a mobile application using Flutter and a Flask backend to predict plant diseases and provide treatment suggestions based on input data.",
-      "image": "/leafx.png",
+      "image": "/images/leafx.png",
       "tags": [
         "Python",
         "Flask",
