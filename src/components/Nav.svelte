@@ -108,7 +108,7 @@
     </nav>
 
     <!-- CTA -->
-    <a href={data.personal.resume} class="btn-primary topbar-cta" data-hover>
+    <a href={data.personal.resume} download class="btn-primary topbar-cta" data-hover>
       Resume
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
