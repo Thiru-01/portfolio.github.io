@@ -48,11 +48,11 @@
     "id": 1,
     "company": "Zoho Corporation",
     "role": "Full Stack Developer / Systems Engineer",
-    "period": "Oct 2022 – Present",
-    "duration": "3+ yrs",
+    "period": "Oct 2023 – Present",
+    "duration": "2+ yrs",
     "location": "Chennai, India",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/5/54/Zoho-logo.png",
-    "cover": "https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=900&q=80",
+    "logo": "/zoho.svg",
+    "cover": "/me-zoho-cover.jpg",
     "description": "Working on high-performance backend systems and system-level engineering. Focused on building scalable, low-latency architectures involving file systems, large-scale data transfer, and efficient I/O workflows.",
     "achievements": [
       "Engineered a custom read-only NTFS driver in Rust for disk imaging, removing constraints on source-target disk sizes",
@@ -70,8 +70,8 @@
     "period": "Jan 2022 – Jul 2022",
     "duration": "6 mos",
     "location": "India",
-    "logo": "https://images.unsplash.com/photo-1551434678-e076c223a692?w=80&h=80&q=90&fit=crop",
-    "cover": "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=900&q=80",
+    "logo": "/eminds.svg",
+    "cover": "/eminds-cover.jpg",
     "description": "Developed cross-platform mobile applications using Flutter with backend integrations. Focused on building scalable mobile features and improving user experience.",
     "achievements": [
       "Built cross-platform mobile applications using Flutter integrated with REST APIs",
@@ -79,70 +79,60 @@
       "Collaborated with teams to debug and optimize performance issues"
     ],
     "tech": ["Flutter", "Dart", "REST APIs", "Firebase"]
-  },
-  {
-    "id": 3,
-    "company": "GSK Technology",
-    "role": "Python Developer",
-    "period": "Jan 2021 – Feb 2021",
-    "duration": "2 mos",
-    "location": "India",
-    "logo": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=80&h=80&q=90&fit=crop",
-    "cover": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=900&q=80",
-    "description": "Worked on real-time data processing systems involving CCTV feeds and barcode scanning. Focused on efficient data handling and algorithm optimization.",
-    "achievements": [
-      "Developed Python solutions for real-time processing of video and scanner data",
-      "Improved processing efficiency using optimized algorithms and data structures",
-      "Assisted in debugging, testing, and maintaining system performance"
-    ],
-    "tech": ["Python", "Data Processing", "Algorithms"]
   }
 ],
   "projects": [
   {
-    "id": 1,
-    "title": "Understanding NTFS Internals: From MFT to Data Runs",
-    "excerpt": "A deep dive into NTFS file system internals, covering file records, attributes, and how data runs are structured and parsed.",
-    "date": "2025",
-    "readTime": "10 min read",
-    "tags": ["NTFS", "File Systems", "Rust"],
-    "cover": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
-    "content": "",
-    "featured": true
-  },
-  {
-    "id": 2,
-    "title": "Designing High-Throughput File Upload Systems",
-    "excerpt": "Key design decisions and trade-offs when building systems for large file transfers, including concurrency, buffering, and I/O optimization.",
-    "date": "2025",
-    "readTime": "8 min read",
-    "tags": ["Backend", "Performance", "System Design"],
-    "cover": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
-    "content": "",
-    "featured": true
-  },
-  {
-    "id": 3,
-    "title": "Multicast vs Unicast: Efficient Data Distribution",
-    "excerpt": "Exploring how multicast communication can significantly improve scalability in distributed systems compared to traditional approaches.",
-    "date": "2025",
-    "readTime": "7 min read",
-    "tags": ["Distributed Systems", "Networking"],
-    "cover": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80",
-    "content": "",
-    "featured": false
-  },
-  {
-    "id": 4,
-    "title": "Building Real-Time Applications with Firebase",
-    "excerpt": "Lessons learned while building scalable real-time chat applications using Firebase and handling messaging at scale.",
-    "date": "2024",
-    "readTime": "6 min read",
-    "tags": ["Firebase", "Real-Time", "Mobile"],
-    "cover": "https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=800&q=80",
-    "content": "",
-    "featured": false
-  }
+      "id": 1,
+      "title": "NTFS Filesystem Driver",
+      "subtitle": "Low-Level Systems Project (Rust)",
+      "description": "Built a custom read-only NTFS filesystem driver in Rust for disk imaging. Handles file record parsing, data runs, and enables efficient disk operations without requiring identical source and target disk sizes.",
+      "image": "/ntfs.jpg",
+      "tags": ["Rust", "NTFS", "File Systems", "Systems Programming"],
+      "featured": true,
+      "accentColor": "#DEA584"
+    },
+    {
+      "id": 2,
+      "title": "High-Throughput Upload Server",
+      "subtitle": "Backend & Systems Engineering",
+      "description": "Designed a high-performance upload server optimized for large file transfers. Focused on low latency, concurrency control, and efficient resource utilization for handling large-scale data workloads.",
+      "image": "/upload-server.jpg",
+      "tags": ["Java", "NIO", "Backend", "Concurrency", "Performance"],
+      "featured": true,
+      "accentColor": "#007396"
+    },{
+      "id": 3,
+      "title": "Multicast Data Transmission",
+      "subtitle": "Distributed Systems Module",
+      "description": "Implemented a multicast-based data transmission system to efficiently broadcast data to multiple clients, improving scalability and reducing redundant network usage.",
+      "image": "/multicast.jpg",
+      "tags": ["Distributed Systems", "Networking", "Concurrency"],
+      "featured": true,
+      "accentColor": "#c9a84c"
+    },{
+      "id": 4,
+      "title": "AmSt Chat Application",
+      "subtitle": "Real-Time Messaging App",
+      "description": "Developed a real-time chat application supporting text, image, and video messaging using Firebase. Integrated authentication and scalable messaging features.",
+      "image": "/amst.png",
+      "tags": ["Flutter", "Firebase", "Real-Time", "FCM"],
+      "github": "https://github.com/Thiru-01/amst",
+      "live": "",
+      "featured": true,
+      "accentColor": "#FFCA28"
+    },{
+      "id": 5,
+      "title": "LeafX",
+      "subtitle": "AI Plant Disease Detection",
+      "description": "Built a mobile application using Flutter and a Flask backend to predict plant diseases and provide treatment suggestions based on input data.",
+      "image": "/leafx.png",
+      "tags": ["Python", "Flask", "AI", "Flutter"],
+      "github": "https://github.com/Thiru-01/LeafX",
+      "live": "",
+      "featured": true,
+      "accentColor": "#84c94c"
+    }
 ], 
 "blog": []
 }

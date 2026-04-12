@@ -149,9 +149,9 @@
   .tab-logo {
     width: 44px; height: 44px;
     border-radius: var(--radius-sm);
-    object-fit: cover;
     background: var(--bg-surface);
     flex-shrink: 0;
+    padding: 4px;
     border: 1px solid var(--border);
   }
 
@@ -184,13 +184,13 @@
   .exp-cover img {
     width: 100%; height: 100%;
     object-fit: cover;
-    filter: brightness(0.5) saturate(0.7);
+    filter: brightness(0.7) saturate(0.7);
     transition: var(--trans-slow);
   }
 
   .exp-detail:hover .exp-cover img {
     transform: scale(1.04);
-    filter: brightness(0.55) saturate(0.8);
+    filter: brightness(0.85) saturate(0.8);
   }
 
   .exp-cover-overlay {
