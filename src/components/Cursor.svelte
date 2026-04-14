@@ -5,9 +5,14 @@
   let tx = -100, ty = -100
   let dot_x = -100, dot_y = -100
   let hovering = false
+  let enabled = false
   let raf
 
   function lerp(a, b, n) { return a + (b - a) * n }
+
+  function supportsCustomCursor() {
+    return window.matchMedia('(hover: hover) and (pointer: fine)').matches
+  }
 
   function onMove(e) {
     tx = e.clientX
@@ -26,6 +31,9 @@
   }
 
   onMount(() => {
+    enabled = supportsCustomCursor()
+    if (!enabled) return
+
     window.addEventListener('mousemove', onMove)
     document.querySelectorAll('a, button, [data-hover]').forEach(el => {
       el.addEventListener('mouseenter', onEnter)
@@ -35,23 +43,26 @@
   })
 
   onDestroy(() => {
+    if (!enabled) return
     window.removeEventListener('mousemove', onMove)
     cancelAnimationFrame(raf)
   })
 </script>
 
-<!-- Main ring cursor -->
-<div
-  class="cursor-ring"
-  class:hovering
-  style="transform: translate({x - 20}px, {y - 20}px)"
-></div>
+{#if enabled}
+  <!-- Main ring cursor -->
+  <div
+    class="cursor-ring"
+    class:hovering
+    style="transform: translate({x - 20}px, {y - 20}px)"
+  ></div>
 
-<!-- Small dot cursor -->
-<div
-  class="cursor-dot"
-  style="transform: translate({dot_x - 3}px, {dot_y - 3}px)"
-></div>
+  <!-- Small dot cursor -->
+  <div
+    class="cursor-dot"
+    style="transform: translate({dot_x - 3}px, {dot_y - 3}px)"
+  ></div>
+{/if}
 
 <style>
   .cursor-ring {
