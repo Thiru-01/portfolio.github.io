@@ -7,11 +7,13 @@
   let hovering = false
   let enabled = false
   let raf
+  let mediaQuery
+  let listenersAttached = false
 
   function lerp(a, b, n) { return a + (b - a) * n }
 
   function supportsCustomCursor() {
-    return window.matchMedia('(hover: hover) and (pointer: fine)').matches
+    return mediaQuery ? mediaQuery.matches : window.matchMedia('(hover: hover) and (pointer: fine)').matches
   }
 
   function onMove(e) {
@@ -30,22 +32,60 @@
     raf = requestAnimationFrame(loop)
   }
 
-  onMount(() => {
-    enabled = supportsCustomCursor()
-    if (!enabled) return
-
+  function attachCursor() {
+    if (listenersAttached) return
     window.addEventListener('mousemove', onMove)
     document.querySelectorAll('a, button, [data-hover]').forEach(el => {
       el.addEventListener('mouseenter', onEnter)
       el.addEventListener('mouseleave', onLeave)
     })
     loop()
+    listenersAttached = true
+  }
+
+  function detachCursor() {
+    if (!listenersAttached) return
+    window.removeEventListener('mousemove', onMove)
+    document.querySelectorAll('a, button, [data-hover]').forEach(el => {
+      el.removeEventListener('mouseenter', onEnter)
+      el.removeEventListener('mouseleave', onLeave)
+    })
+    cancelAnimationFrame(raf)
+    listenersAttached = false
+  }
+
+  function handleMediaChange(event) {
+    enabled = event.matches
+    if (enabled) {
+      attachCursor()
+    } else {
+      detachCursor()
+    }
+  }
+
+  onMount(() => {
+    mediaQuery = window.matchMedia('(hover: hover) and (pointer: fine)')
+    enabled = supportsCustomCursor()
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener('change', handleMediaChange)
+    } else {
+      mediaQuery.addListener(handleMediaChange)
+    }
+
+    if (enabled) {
+      attachCursor()
+    }
   })
 
   onDestroy(() => {
-    if (!enabled) return
-    window.removeEventListener('mousemove', onMove)
-    cancelAnimationFrame(raf)
+    if (mediaQuery) {
+      if (mediaQuery.removeEventListener) {
+        mediaQuery.removeEventListener('change', handleMediaChange)
+      } else {
+        mediaQuery.removeListener(handleMediaChange)
+      }
+    }
+    detachCursor()
   })
 </script>
 
