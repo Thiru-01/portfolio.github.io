@@ -129,6 +129,14 @@ body::after {
   border: 0;
 }
 
+@media (hover: none), (pointer: coarse) {
+  body,
+  button,
+  a {
+    cursor: auto;
+  }
+}
+
 /* Scroll reveal animation */
 .reveal {
   opacity: 0;

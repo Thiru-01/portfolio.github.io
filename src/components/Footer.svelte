@@ -14,9 +14,6 @@
       <a href={data.personal.linkedin} target="_blank" data-hover>LinkedIn</a>
       <a href="mailto:{data.personal.email}" data-hover>Email</a>
     </div>
-    <div class="footer-right">
-      <span class="footer-made">Built with <span class="heart">♥</span> in Svelte</span>
-    </div>
   </div>
 </footer>
 

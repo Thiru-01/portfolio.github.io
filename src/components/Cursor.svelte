@@ -5,9 +5,16 @@
   let tx = -100, ty = -100
   let dot_x = -100, dot_y = -100
   let hovering = false
+  let enabled = false
   let raf
+  let mediaQuery
+  let listenersAttached = false
 
   function lerp(a, b, n) { return a + (b - a) * n }
+
+  function supportsCustomCursor() {
+    return mediaQuery ? mediaQuery.matches : window.matchMedia('(hover: hover) and (pointer: fine)').matches
+  }
 
   function onMove(e) {
     tx = e.clientX
@@ -25,33 +32,77 @@
     raf = requestAnimationFrame(loop)
   }
 
-  onMount(() => {
+  function attachCursor() {
+    if (listenersAttached) return
     window.addEventListener('mousemove', onMove)
     document.querySelectorAll('a, button, [data-hover]').forEach(el => {
       el.addEventListener('mouseenter', onEnter)
       el.addEventListener('mouseleave', onLeave)
     })
     loop()
+    listenersAttached = true
+  }
+
+  function detachCursor() {
+    if (!listenersAttached) return
+    window.removeEventListener('mousemove', onMove)
+    document.querySelectorAll('a, button, [data-hover]').forEach(el => {
+      el.removeEventListener('mouseenter', onEnter)
+      el.removeEventListener('mouseleave', onLeave)
+    })
+    cancelAnimationFrame(raf)
+    listenersAttached = false
+  }
+
+  function handleMediaChange(event) {
+    enabled = event.matches
+    if (enabled) {
+      attachCursor()
+    } else {
+      detachCursor()
+    }
+  }
+
+  onMount(() => {
+    mediaQuery = window.matchMedia('(hover: hover) and (pointer: fine)')
+    enabled = supportsCustomCursor()
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener('change', handleMediaChange)
+    } else {
+      mediaQuery.addListener(handleMediaChange)
+    }
+
+    if (enabled) {
+      attachCursor()
+    }
   })
 
   onDestroy(() => {
-    window.removeEventListener('mousemove', onMove)
-    cancelAnimationFrame(raf)
+    if (mediaQuery) {
+      if (mediaQuery.removeEventListener) {
+        mediaQuery.removeEventListener('change', handleMediaChange)
+      } else {
+        mediaQuery.removeListener(handleMediaChange)
+      }
+    }
+    detachCursor()
   })
 </script>
 
-<!-- Main ring cursor -->
-<div
-  class="cursor-ring"
-  class:hovering
-  style="transform: translate({x - 20}px, {y - 20}px)"
-></div>
+{#if enabled}
+  <!-- Main ring cursor -->
+  <div
+    class="cursor-ring"
+    class:hovering
+    style="transform: translate({x - 20}px, {y - 20}px)"
+  ></div>
 
-<!-- Small dot cursor -->
-<div
-  class="cursor-dot"
-  style="transform: translate({dot_x - 3}px, {dot_y - 3}px)"
-></div>
+  <!-- Small dot cursor -->
+  <div
+    class="cursor-dot"
+    style="transform: translate({dot_x - 3}px, {dot_y - 3}px)"
+  ></div>
+{/if}
 
 <style>
   .cursor-ring {
